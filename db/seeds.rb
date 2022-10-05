@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Todo.destroy_all
+
+statuses = %w[started backlog done]
+
+20.times do |index|
+    Todo.create!(title: Faker::Movie.title,
+                 status: statuses[1 + rand(statuses.count)],
+                 is_completed: [true, false].sample
+                )
+end
+
+puts "Created #{Todo.count} Todo items"
