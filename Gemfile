@@ -29,6 +29,8 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'faker'
+  gem 'rspec-rails'
+  gem 'rswag-specs'
 end
 
 group :development do
@@ -44,3 +46,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "devise", "~> 4.8"
 
 gem "devise_token_auth", "~> 1.2"
+
+gem "rswag", "~> 2.6"

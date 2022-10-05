@@ -5,4 +5,7 @@ class Todo < ApplicationRecord
         where(:user_id => user.id)
     }
 
+    # validations
+    validates_presence_of :title
+
 end

@@ -1,0 +1,36 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/todos":
+    post:
+      summary: Creates a Todo
+      tags:
+      - Todos
+      parameters: []
+      responses:
+        '201':
+          description: Todo created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                status:
+                  type: string
+                is_completed:
+                  type: boolean
+              required:
+              - title
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com
