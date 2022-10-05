@@ -1,13 +1,13 @@
 class Api::V1::TodosController < ApplicationController
     before_action :authenticate_user!
+    before_action :set_todo, only: %i[show update destroy]
 
     def index
-        @todos = Todo.all
+        @todos = Todo.by_user(current_user)
         render json: @todos
     end
 
     def show
-        @todo = Todo.find(params[:id])
         render json: @todo
     end
 
@@ -21,7 +21,7 @@ class Api::V1::TodosController < ApplicationController
     end
 
     def update
-        @todo = Todo.find(params[:id])
+
         if @todo
             @todo.update(valid_params)
             render json: {message: 'Todo updated'}, status: 200
@@ -31,7 +31,7 @@ class Api::V1::TodosController < ApplicationController
     end
 
     def destroy
-        @todo = Todo.find(params[:id])
+
         if @todo
             @todo.destroy
             render json: {message: 'Todo destroyed'}, status: 200
@@ -41,6 +41,12 @@ class Api::V1::TodosController < ApplicationController
     end
 
     private
+
+    def set_todo
+        @todo = Todo.by_user(current_user).find(params[:id])
+        rescue ActiveRecord::RecordNotFound
+            render json: {error: 'Unable to find Todo'}, status: 404
+    end
 
     def valid_params
         params.require(:todo).permit(:title, :status, :is_completed)
