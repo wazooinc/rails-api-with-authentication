@@ -3,7 +3,7 @@
 This is the accompanying source code to my video on putting together your own API from
 scratch using Ruby on Rails.
 
-Video available here:
+Video available here: https://youtu.be/8cJuXjCZ36Q
 
 ## Developer Install
 
