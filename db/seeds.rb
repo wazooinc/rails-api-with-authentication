@@ -7,8 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Todo.destroy_all
+User.destroy_all
 
 statuses = %w[started backlog done]
+user1 = User.create!(email: "user1@user.com", password: "password", password_confirmation: "password")
 
 20.times do |index|
     Todo.create!(title: Faker::Movie.title,
@@ -17,4 +19,5 @@ statuses = %w[started backlog done]
                 )
 end
 
+puts "Created User: #{user1.email}"
 puts "Created #{Todo.count} Todo items"
