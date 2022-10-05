@@ -28,6 +28,15 @@ We've included some help from Swagger to generate API documentation for this API
 - Run `rake rswag` to generate
 - Once the server's running, the docs are available via browser at `/api-docs`
 
+## Future Considerations and TODO
+
+Depending on your API delivery needs and specific use case, there's always room for improvement on a project
+like this:
+- Update specs
+- One option is to introduce an API Gateway through something like AWS to cache often repeated requests on more static-y data responses
+- There are many types of API architecture out there for authentication, authorization and design
+- ...
+
 ## LICENSE
 
 Copyright 2022 Wazoo Enterprises Inc.
