@@ -1,4 +1,5 @@
 class Api::V1::TodosController < ApplicationController
+    before_action :authenticate_account!
 
     def index
         @todos = Todo.all
